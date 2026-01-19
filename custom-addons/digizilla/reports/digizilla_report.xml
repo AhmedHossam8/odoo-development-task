@@ -1,0 +1,10 @@
+<odoo>
+    <record id="digizilla_report" model="ir.actions.report">
+        <field name="name">Digizilla Report</field>
+        <field name="model">digizilla.digizilla</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">digizilla.report_template</field>
+        <field name="report_file">digizilla.report_template</field>
+        <field name="print_report_name">'Digizilla Report - %s' % (object.name)</field>
+    </record>
+</odoo>
