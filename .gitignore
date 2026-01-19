@@ -1,0 +1,45 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Odoo generated files
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.pot
+*.mo
+*.swp
+*.swo
+*.sqlite3
+
+# Odoo / temporary / session files
+*.zip
+*.tar
+*.log
+*.orig
+*.rej
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node / JS / assets (if you have node_modules)
+node_modules/
+
+# Odoo auto-generated assets cache
+*.sass-cache
+*.scssc
+*.map
