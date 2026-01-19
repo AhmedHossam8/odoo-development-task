@@ -1,0 +1,111 @@
+<odoo>
+    <!-- Form View -->
+    <record id="view_form_digizilla" model="ir.ui.view">
+        <field name="name">digizilla.form</field>
+        <field name="model">digizilla.digizilla</field>
+        <field name="arch" type="xml">
+            <form string="Digizilla">
+                <header>
+                    <button name="%(digizilla.digizilla_report)d"
+                            type="action"
+                            string="Print Report"
+                            class="btn-primary"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="gender"/>
+                        <field name="country_id"/>
+                        <field name="birth_date"/>
+                        <field name="age" readonly="1"/>
+                        <field name="tag_ids"/>
+                        <field name="customer_id"/>
+                        <field name="no_of_sales_orders" readonly="1"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Notes">
+                            <field name="notes"/>
+                        </page>
+                        <page string="Comments">
+                            <field name="comments"/>
+                        </page>
+                    </notebook>
+
+                    <!-- Chatter -->
+                    <chatter/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="view_kanban_digizilla" model="ir.ui.view">
+        <field name="name">digizilla.kanban</field>
+        <field name="model">digizilla.digizilla</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="tag_ids"/>
+                <field name="customer_id"/>
+                <field name="no_of_sales_orders"/>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- List View -->
+    <record id="view_list_digizilla" model="ir.ui.view">
+        <field name="name">digizilla.list</field>
+        <field name="model">digizilla.digizilla</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="tag_ids"/>
+                <field name="birth_date"/>
+                <field name="gender"/>
+                <field name="country_id"/>
+                <field name="customer_id"/>
+                <field name="no_of_sales_orders"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_digizilla" model="ir.actions.act_window">
+        <field name="name">Digizilla Records</field>
+        <field name="res_model">digizilla.digizilla</field>
+        <field name="view_mode">list,form,kanban,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Digizilla record
+            </p>
+        </field>
+    </record>
+
+    <record id="view_digizilla_pivot" model="ir.ui.view">
+        <field name="name">digizilla.pivot</field>
+        <field name="model">digizilla.digizilla</field>
+        <field name="arch" type="xml">
+            <pivot string="Digizilla Pivot">
+                <!-- Measures -->
+                <field name="age" type="measure"/>
+                <field name="no_of_sales_orders" type="measure"/>
+                
+                <!-- Rows and Columns -->
+                <field name="gender" type="row"/>
+                <field name="country_id" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_digizilla_root" name="Digizilla"/>
+    <menuitem id="menu_digizilla_records"
+              name="Digizilla Records"
+              parent="menu_digizilla_root"
+              action="action_digizilla"/>
+
+</odoo>
